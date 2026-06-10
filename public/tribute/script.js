@@ -23,15 +23,14 @@ async function runLoader() {
     loaderSkipped = true;
     if (fill) fill.style.width = '100%';
     if (pct) pct.textContent = '100%';
-    // Lazy-bind audio src + play on the first user gesture only
+    // Pre-bind jet audio src so the toggle can play it on click — but do NOT
+    // auto-play on the first stray gesture. Sound only plays when the user
+    // explicitly clicks the ENGINE AUDIO button.
     const jetAudio = $('#jetAudio');
     if (jetAudio && jetAudio.dataset.src && !jetAudio.src) {
       jetAudio.src = jetAudio.dataset.src;
       jetAudio.volume = 0.45;
     }
-    const tryPlay = () => { jetAudio && jetAudio.play().catch(() => {}); };
-    document.addEventListener('pointerdown', tryPlay, { once: true });
-    document.addEventListener('keydown', tryPlay, { once: true });
     loader && loader.classList.add('is-done');
   };
 
