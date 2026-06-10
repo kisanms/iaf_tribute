@@ -296,21 +296,22 @@ const SQUADRONS = [
   { num: '125', name: 'Gladiators', motto: 'Strike Hard, Strike Sure', aircraft: 'Apache', color: '#138808', base: 'Pathankot' }
 ];
 
+// lat = top%, lon = left% — calibrated against india-map.png outline
 const BASES = [
-  { name: 'Ambala AFS', cmd: 'Western', lat: 18, lon: 32, role: 'Rafale · 17 Sqn', acft: 'Rafale' },
-  { name: 'Hindon AFS', cmd: 'Western', lat: 24, lon: 38, role: 'C-17 · 81 Sqn',   acft: 'Strategic Airlift' },
-  { name: 'Gwalior AFS', cmd: 'Central', lat: 32, lon: 36, role: 'Mirage 2000',    acft: 'Mirage 2000' },
-  { name: 'Pune (Lohegaon)', cmd: 'South-Western', lat: 50, lon: 28, role: 'Su-30 MKI', acft: 'Sukhoi' },
-  { name: 'Bengaluru (Yelahanka)', cmd: 'Training', lat: 70, lon: 33, role: 'Transport · Training', acft: 'C-130J' },
-  { name: 'Sulur AFS', cmd: 'Southern', lat: 78, lon: 40, role: 'Tejas · 45 Sqn',  acft: 'Tejas' },
-  { name: 'Tezpur AFS', cmd: 'Eastern',  lat: 28, lon: 78, role: 'Su-30 MKI',      acft: 'Sukhoi' },
-  { name: 'Hashimara AFS', cmd: 'Eastern', lat: 30, lon: 84, role: 'Rafale · 101 Sqn', acft: 'Rafale' },
-  { name: 'Leh AFS', cmd: 'Western (Forward)', lat: 8, lon: 18, role: 'Heli Ops · Forward', acft: 'Chinook · Mi-17' },
-  { name: 'Srinagar AFS', cmd: 'Western', lat: 6, lon: 24, role: 'MiG-29UPG', acft: 'MiG-29' },
-  { name: 'Pathankot AFS', cmd: 'Western', lat: 10, lon: 28, role: 'Apache · 125 Sqn', acft: 'Apache' },
-  { name: 'Jodhpur AFS', cmd: 'South-Western', lat: 36, lon: 18, role: 'Su-30 MKI · Rafale Det', acft: 'Sukhoi' },
-  { name: 'Car Nicobar AFS', cmd: 'Andaman', lat: 90, lon: 70, role: 'FRA · Forward', acft: 'Su-30' },
-  { name: 'Bagdogra AFS', cmd: 'Eastern', lat: 28, lon: 70, role: 'MiG-21 Bison', acft: 'MiG-21' }
+  { name: 'Srinagar AFS', cmd: 'Western', lat: 9, lon: 28, role: 'MiG-29UPG', acft: 'MiG-29' },
+  { name: 'Leh AFS', cmd: 'Western (Forward)', lat: 10, lon: 38, role: 'Heli Ops · Forward', acft: 'Chinook · Mi-17' },
+  { name: 'Pathankot AFS', cmd: 'Western', lat: 15, lon: 31, role: 'Apache · 125 Sqn', acft: 'Apache' },
+  { name: 'Ambala AFS', cmd: 'Western', lat: 19, lon: 33, role: 'Rafale · 17 Sqn', acft: 'Rafale' },
+  { name: 'Hindon AFS', cmd: 'Western', lat: 23, lon: 34, role: 'C-17 · 81 Sqn', acft: 'Strategic Airlift' },
+  { name: 'Jodhpur AFS', cmd: 'South-Western', lat: 30, lon: 22, role: 'Su-30 MKI · Rafale Det', acft: 'Sukhoi' },
+  { name: 'Gwalior AFS', cmd: 'Central', lat: 30, lon: 38, role: 'Mirage 2000', acft: 'Mirage 2000' },
+  { name: 'Bagdogra AFS', cmd: 'Eastern', lat: 30, lon: 62, role: 'MiG-21 Bison', acft: 'MiG-21' },
+  { name: 'Hashimara AFS', cmd: 'Eastern', lat: 29, lon: 68, role: 'Rafale · 101 Sqn', acft: 'Rafale' },
+  { name: 'Tezpur AFS', cmd: 'Eastern', lat: 26, lon: 75, role: 'Su-30 MKI', acft: 'Sukhoi' },
+  { name: 'Pune (Lohegaon)', cmd: 'South-Western', lat: 53, lon: 26, role: 'Su-30 MKI', acft: 'Sukhoi' },
+  { name: 'Bengaluru (Yelahanka)', cmd: 'Training', lat: 76, lon: 33, role: 'Transport · Training', acft: 'C-130J' },
+  { name: 'Sulur AFS', cmd: 'Southern', lat: 83, lon: 34, role: 'Tejas · 45 Sqn', acft: 'Tejas' },
+  { name: 'Car Nicobar AFS', cmd: 'Andaman', lat: 86, lon: 86, role: 'FRA · Forward', acft: 'Su-30' }
 ];
 
 const HUMANITARIAN = [
