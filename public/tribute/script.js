@@ -104,7 +104,15 @@ async function runLoader() {
 let lenis;
 function initLenis() {
   if (typeof Lenis === 'undefined') return;
-  lenis = new Lenis({ duration: 1.15, smoothWheel: true, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) return; // Honour the user's OS-level preference.
+  lenis = new Lenis({
+    duration: 1.05,
+    smoothWheel: true,
+    wheelMultiplier: 1,
+    touchMultiplier: 1.4,
+    easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  });
   function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
   requestAnimationFrame(raf);
   if (window.ScrollTrigger) {
@@ -112,7 +120,54 @@ function initLenis() {
     gsap.ticker.add(time => lenis.raf(time * 1000));
     gsap.ticker.lagSmoothing(0);
   }
+
+  // Intercept in-page hash links so Lenis owns the easing + nav offset
+  const NAV_OFFSET = -88;
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    const id = a.getAttribute('href');
+    if (!id || id === '#') return;
+    const target = document.querySelector(id);
+    if (!target) return;
+    e.preventDefault();
+    lenis.scrollTo(target, { offset: NAV_OFFSET, duration: 1.2 });
+  });
 }
+
+// ============= SCROLL-TO-TOP =============
+function initScrollTop() {
+  const btn = $('#scrollTop');
+  if (!btn) return;
+  let visible = false;
+  const onScroll = () => {
+    const should = window.scrollY > 600;
+    if (should !== visible) {
+      visible = should;
+      btn.classList.toggle('is-visible', visible);
+    }
+  };
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => { onScroll(); ticking = false; });
+  }, { passive: true });
+  btn.addEventListener('click', () => {
+    if (lenis) lenis.scrollTo(0, { duration: 1.2 });
+    else window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  onScroll();
+}
+
+// ============= LAZY IMAGES (gallery / dynamically-rendered) =============
+function applyLazyToImages(root = document) {
+  root.querySelectorAll('img:not([loading])').forEach(img => {
+    img.loading = 'lazy';
+    img.decoding = 'async';
+  });
+}
+
 
 // ============= HERO 3D SCENE (Three.js) =============
 function initHero3D() {
