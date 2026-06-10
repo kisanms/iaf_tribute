@@ -1004,6 +1004,8 @@ window.addEventListener('DOMContentLoaded', async () => {
 
   initLenis();
   initGsap();
+  initScrollTop();
+  applyLazyToImages();
 
   await runLoader();
 });
