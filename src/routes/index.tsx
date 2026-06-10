@@ -1,29 +1,60 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect } from "react";
+
+const TRIBUTE_URL = "/tribute/index.html";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Indian Air Force — Touch The Sky With Glory" },
+      {
+        name: "description",
+        content:
+          "A cinematic tribute to the Indian Air Force — guardians of India's skies since 1932.",
+      },
+      { property: "og:title", content: "Indian Air Force — Touch The Sky With Glory" },
+      {
+        property: "og:description",
+        content:
+          "Ninety-four years of courage, precision, and unmatched aerial supremacy.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "theme-color", content: "#0a1628" },
     ],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
+  // Replace history so the back button doesn't trap users on the redirect shim.
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.location.replace(TRIBUTE_URL);
+    }
+  }, []);
+
   return (
     <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "#02060c",
+        color: "#bccada",
+        fontFamily:
+          "'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace",
+        letterSpacing: "0.2em",
+        fontSize: 12,
+      }}
     >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+      <noscript>
+        <meta httpEquiv="refresh" content={`0; url=${TRIBUTE_URL}`} />
+        <a href={TRIBUTE_URL} style={{ color: "#ff9933" }}>
+          ENTER TRIBUTE →
+        </a>
+      </noscript>
+      INITIALIZING FLIGHT SYSTEMS…
     </div>
   );
 }
