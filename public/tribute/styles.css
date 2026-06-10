@@ -963,7 +963,7 @@ input,select,textarea{font:inherit;color:inherit}
     radial-gradient(ellipse 60% 50% at 50% 50%, rgba(255,153,51,.06), transparent 70%),
     linear-gradient(180deg, #07182f 0%, #0a1628 100%);
   border:1px solid var(--glass-border);
-  aspect-ratio:1/1.05;
+  aspect-ratio:260/280;
   overflow:hidden;
   box-shadow:inset 0 0 40px rgba(255,153,51,.08);
 }
@@ -976,10 +976,10 @@ input,select,textarea{font:inherit;color:inherit}
 }
 .india-map-img{
   position:absolute;
-  inset:5%;
-  width:90%;
-  height:90%;
-  object-fit:contain;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:fill;
   object-position:center;
   opacity:0.85;
   /* Multiply makes the white background transparent, keeping black lines. 
