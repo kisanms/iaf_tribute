@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Indian Air Force Tribute — Touch the Sky with Glory. A cinematic tribute to the guardians of India's skies since 1932." />
+  <meta name="theme-color" content="#0a1628" />
+  <title>Indian Air Force — Touch The Sky With Glory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+  <link rel="preconnect" href="https://sketchfab.com" />
+  <link rel="preload" as="image" href="/__l5e/assets-v1/9967b7fc-ad3b-46c2-b117-ffcf1bb8993a/cockpit-bg.png" fetchpriority="high" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============ LOADING SCREEN ============ -->
+  <div id="loader" class="loader" aria-hidden="true">
+    <div class="loader__radar">
+      <div class="radar-grid"></div>
+      <div class="radar-rings"><span></span><span></span><span></span><span></span></div>
+      <div class="radar-sweep"></div>
+      <div class="radar-blip" style="--x:32%;--y:40%"></div>
+      <div class="radar-blip" style="--x:65%;--y:58%"></div>
+      <div class="radar-blip" style="--x:48%;--y:25%"></div>
+      <div class="radar-crosshair"></div>
+    </div>
+    <div class="loader__brand">
+      <div class="loader__roundel" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="loader__title">INDIAN AIR FORCE</div>
+      <div class="loader__subtitle">Initializing flight systems…</div>
+    </div>
+    <div class="loader__bar">
+      <div class="loader__bar-fill" id="loaderBar"></div>
+    </div>
+    <div class="loader__meta">
+      <span id="loaderPct">0%</span>
+      <span class="loader__dot"></span>
+      <span>SYS BOOT // RADAR ONLINE</span>
+      <button class="loader__sound" id="soundToggle" type="button" aria-label="Toggle engine sound">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+        <span>ENGINE AUDIO</span>
+      </button>
+      <button class="loader__skip" id="loaderSkip" type="button" aria-label="Skip intro">
+        <span>SKIP INTRO</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4l10 8-10 8V4zM19 5v14"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Floating scroll-to-top -->
+  <button id="scrollTop" class="scroll-top" type="button" aria-label="Scroll to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <a href="#hero" class="nav__brand">
+      <div class="nav__roundel"><span></span><span></span><span></span></div>
+      <div class="nav__brand-text">
+        <strong>BHARATIYA VAYU SENA</strong>
+        <small>Indian Air Force · est. 1932</small>
+      </div>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#fleet">Fleet</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#warriors">Warriors</a>
+      <a href="#mission">Mission Control</a>
+      <a href="#bases">Air Bases</a>
+      <a href="#gallery">Gallery</a>
+    </nav>
+    <button class="nav__cta" type="button" onclick="document.getElementById('fleet').scrollIntoView({behavior:'smooth'})">
+      <span>EXPLORE</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </button>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section id="hero" class="hero">
+    <div class="hero__sky"></div>
+    
+    <div class="hero__model">
+      <iframe
+        title="Su-30MKM · 3D Model"
+        src="https://sketchfab.com/models/975f019bf31b4dc8b7d96753259b152d/embed?autospin=1&autostart=1&preload=1&transparent=1&ui_hint=0&ui_theme=dark&ui_infos=0&ui_controls=0&ui_inspector=0&ui_stop=0&ui_watermark_link=0&ui_watermark=0&ui_ar=0&ui_help=0&ui_settings=0&ui_vr=0&ui_fullscreen=0&ui_animations=0&dnt=1"
+        frameborder="0"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
+        execution-while-out-of-viewport execution-while-not-rendered web-share></iframe>
+    </div>
+    <div class="hero__clouds"></div>
+    <div class="hero__grid"></div>
+    <div class="hero__vignette"></div>
+
+    <div class="hero__hud">
+      <div class="hud-corner hud-corner--tl">
+        <span class="hud-label">SYS</span>
+        <span class="hud-value">ONLINE</span>
+        <span class="hud-label">SECTOR</span>
+        <span class="hud-value">N 28°36' E 77°12'</span>
+      </div>
+      <div class="hud-corner hud-corner--tr">
+        <span class="hud-label">ALT</span>
+        <span class="hud-value" id="hudAlt">38,420 ft</span>
+        <span class="hud-label">MACH</span>
+        <span class="hud-value" id="hudMach">1.82</span>
+      </div>
+      <div class="hud-corner hud-corner--bl">
+        <span class="hud-label">FORMATION</span>
+        <span class="hud-value">SARANG · 4 SHIP</span>
+      </div>
+      <div class="hud-corner hud-corner--br">
+        <span class="hud-label">CALLSIGN</span>
+        <span class="hud-value">GARUDA · LEAD</span>
+      </div>
+    </div>
+
+    <div class="hero__content">
+      <div class="hero__eyebrow">
+        <span class="pulse-dot"></span>
+        <span>NABHAḤ SPṚŚAṂ DĪPTAM · TOUCH THE SKY WITH GLORY</span>
+      </div>
+      <h1 class="hero__title">
+        <span class="hero__title-line">INDIAN</span>
+        <span class="hero__title-line hero__title-line--accent">AIR FORCE</span>
+      </h1>
+      <p class="hero__sub">Guardians of India's skies since <strong>1932</strong>. Ninety-four years of courage, precision, and unmatched aerial supremacy.</p>
+      <div class="hero__actions">
+        <a href="#fleet" class="btn btn--primary">
+          <span>Explore the Fleet</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#timeline" class="btn btn--ghost">
+          <span>View Timeline</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero__scroll">
+      <span>SCROLL</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+
+    <div class="hero__ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>RAFALE · DASSAULT · 4.5 GEN ·</span>
+        <span>SU-30 MKI · AIR DOMINANCE ·</span>
+        <span>HAL TEJAS · INDIGENOUS ·</span>
+        <span>MIRAGE 2000 · BALAKOT ·</span>
+        <span>C-17 GLOBEMASTER · STRATEGIC LIFT ·</span>
+        <span>APACHE AH-64E · ATTACK ·</span>
+        <span>CHINOOK CH-47F · HEAVY LIFT ·</span>
+        <span>RAFALE · DASSAULT · 4.5 GEN ·</span>
+        <span>SU-30 MKI · AIR DOMINANCE ·</span>
+        <span>HAL TEJAS · INDIGENOUS ·</span>
+        <span>MIRAGE 2000 · BALAKOT ·</span>
+        <span>C-17 GLOBEMASTER · STRATEGIC LIFT ·</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <section class="stats" id="stats">
+    <div class="section-head">
+      <span class="section-eyebrow">// 01 — BY THE NUMBERS</span>
+      <h2 class="section-title">A Force Forged in <em>Glory</em></h2>
+    </div>
+    <div class="stats__grid">
+      <article class="stat-card" data-tilt>
+        <div class="stat-card__glow"></div>
+        <span class="stat-card__label">Personnel</span>
+        <span class="stat-card__value"><span class="counter" data-to="170000" data-suffix="+">0</span></span>
+        <span class="stat-card__meta">Active &amp; reserve airmen</span>
+      </article>
+      <article class="stat-card" data-tilt>
+        <div class="stat-card__glow"></div>
+        <span class="stat-card__label">Aircraft Fleet</span>
+        <span class="stat-card__value"><span class="counter" data-to="1700" data-suffix="+">0</span></span>
+        <span class="stat-card__meta">Fighters · transport · rotary</span>
+      </article>
+      <article class="stat-card" data-tilt>
+        <div class="stat-card__glow"></div>
+        <span class="stat-card__label">Established</span>
+        <span class="stat-card__value"><span class="counter" data-to="1932">0</span></span>
+        <span class="stat-card__meta">8 October · Royal Indian AF</span>
+      </article>
+      <article class="stat-card" data-tilt>
+        <div class="stat-card__glow"></div>
+        <span class="stat-card__label">Air Commands</span>
+        <span class="stat-card__value"><span class="counter" data-to="7">0</span></span>
+        <span class="stat-card__meta">Operational &amp; functional</span>
+      </article>
+      <article class="stat-card" data-tilt>
+        <div class="stat-card__glow"></div>
+        <span class="stat-card__label">Air Bases</span>
+        <span class="stat-card__value"><span class="counter" data-to="60" data-suffix="+">0</span></span>
+        <span class="stat-card__meta">Forward · main · auxiliary</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about" id="about">
+    <div class="about__visual">
+      <div class="about__frame">
+        <div class="about__image">
+          <!-- Custom Generated Indian Air Force Emblem (SVG) -->
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="saffronGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FF9933"/>
+                <stop offset="100%" stop-color="#FF7A00"/>
+              </linearGradient>
+              <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#138808"/>
+                <stop offset="100%" stop-color="#0D5E05"/>
+              </linearGradient>
+              <filter id="glow">
+                <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                <feMerge>
+                  <feMergeNode in="coloredBlur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+            <!-- Outer Saffron Ring -->
+            <circle cx="100" cy="100" r="90" fill="none" stroke="url(#saffronGrad)" stroke-width="8" filter="url(#glow)"/>
+            <!-- Middle White Ring -->
+            <circle cx="100" cy="100" r="78" fill="#FFFFFF"/>
+            <!-- Inner Green Ring -->
+            <circle cx="100" cy="100" r="65" fill="url(#greenGrad)"/>
+            <!-- Ashoka Chakra (24 spokes) -->
+            <g transform="translate(100, 100)" stroke="#FFFFFF" stroke-width="2.5">
+              <circle cx="0" cy="0" r="45" fill="none" stroke-width="3"/>
+              <circle cx="0" cy="0" r="8" fill="#FFFFFF"/>
+              <!-- 24 Spokes -->
+              <line x1="0" y1="-45" x2="0" y2="-8"/>
+              <line x1="0" y1="-45" x2="0" y2="-8" transform="rotate(15)"/>
+              <line x1="0" y1="-45" x2="0" y2="-8" transform="rotate(30)"/>
+              <line x1="0" y1="-45" x2="0" y2="-8" transform="rotate(45)"/>
+              <line x1="0" y1="-45" x2="0" y2="-8" transform="rotate(60)"/>
+              <line x1="0" y1="-45" x2="0" y2="-8" transform="rotate(75)"/>
+              <line x1="0" y1="-45" x2="0" y2="-8" transform="rotate(90)"/>
+              <line x1="0" y1="-45" x2="0" y2="-8" transform="rotate(105)"/>
+              <line x1="0" y1="-45" x2="0" y2="-8" transform="rotate(120)"/>
+              <line x1="0" y1="-45" x2="0" y2="-8" transform="rotate(135)"/>
+              <line x1="0" y1="-45" x2="0" y2="-8" transform="rotate(150)"/>
+              <line x1="0" y1="-45" x2="0" y2="-8" transform="rotate(165)"/>
+              <line x1="0" y1="-45" x2="0" y2="-8" transform="rotate(180)"/>
+              <line x1="0" y1="-45" x2="0" y2="-8" transform="rotate(195)"/>
+              <line x1="0" y1="-45" x2="0" y2="-8" transform="rotate(210)"/>
+              <line x1="0" y1="-45" x2="0" y2="-8" transform="rotate(225)"/>
+              <line x1="0" y1="-45" x2="0" y2="-8" transform="rotate(240)"/>
+              <line x1="0" y1="-45" x2="0" y2="-8" transform="rotate(255)"/>
+              <line x1="0" y1="-45" x2="0" y2="-8" transform="rotate(270)"/>
+              <line x1="0" y1="-45" x2="0" y2="-8" transform="rotate(285)"/>
+              <line x1="0" y1="-45" x2="0" y2="-8" transform="rotate(300)"/>
+              <line x1="0" y1="-45" x2="0" y2="-8" transform="rotate(315)"/>
+              <line x1="0" y1="-45" x2="0" y2="-8" transform="rotate(330)"/>
+              <line x1="0" y1="-45" x2="0" y2="-8" transform="rotate(345)"/>
+            </g>
+            <!-- Wings motif -->
+            <path d="M 40 100 Q 20 60 60 50 Q 100 40 140 50 Q 180 60 160 100" fill="none" stroke="#FF9933" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+            <path d="M 40 100 Q 20 140 60 150 Q 100 160 140 150 Q 180 140 160 100" fill="none" stroke="#138808" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+          </svg>
+        </div>
+        <div class="about__badge">
+          <strong>IAF</strong>
+          <span>EST. 1932</span>
+        </div>
+        <div class="about__caption">
+          <span class="dot"></span>
+          ARCHIVAL · No. 1 Squadron, Tigers
+        </div>
+      </div>
+    </div>
+    <div class="about__copy">
+      <span class="section-eyebrow">// 02 — THE LEGACY</span>
+      <h2 class="section-title">From a single Wapiti<br/>to a <em>multi-domain</em> force.</h2>
+      <p class="about__lede">Born on 8 October 1932 with a handful of biplanes and six officers, the Indian Air Force has grown into the world's fourth-largest air arm — a doctrine-driven, technology-led service safeguarding 3.28 million square kilometres of sovereign airspace.</p>
+      <ul class="about__list">
+        <li><span>1932</span><p>Constituted as the Royal Indian Air Force with No. 1 Squadron flying Westland Wapitis from Drigh Road.</p></li>
+        <li><span>1950</span><p>Republic of India drops the "Royal" prefix. Vampire jets usher in the jet age.</p></li>
+        <li><span>1971</span><p>Decisive air superiority over East Pakistan accelerates the liberation of Bangladesh in 13 days.</p></li>
+        <li><span>2020+</span><p>Rafale, Tejas Mk1A, S-400 and AMCA programmes anchor the leap to fifth-generation air power.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ FLEET ============ -->
+  <section class="fleet" id="fleet">
+    <div class="section-head">
+      <span class="section-eyebrow">// 03 — ACTIVE FLEET</span>
+      <h2 class="section-title">The <em>Steel</em> of the Sky</h2>
+      <p class="section-sub">Eight platforms that define India's air dominance — from the omnirole Rafale and the indigenous Tejas to the heavy-lift Chinook and the forthcoming 5th-gen AMCA stealth fighter.</p>
+    </div>
+    <div class="fleet__grid" id="fleetGrid"></div>
+  </section>
+
+  <!-- ============ FLEET STATS DASHBOARD ============ -->
+  <section class="dash" id="dash">
+    <div class="section-head">
+      <span class="section-eyebrow">// 04 — FLEET COMPOSITION</span>
+      <h2 class="section-title">Mission-Ready <em>Architecture</em></h2>
+    </div>
+    <div class="dash__grid">
+      <div class="dash__panel dash__panel--bars">
+        <header><h3>Platform Distribution</h3><span>UNITS · ACTIVE</span></header>
+        <div class="bars" id="dashBars"></div>
+      </div>
+      <div class="dash__panel dash__panel--ring">
+        <header><h3>Combat Readiness</h3><span>OPS · LIVE</span></header>
+        <div class="ring">
+          <svg viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="50" class="ring__bg"/>
+            <circle cx="60" cy="60" r="50" class="ring__fg" id="ringFg"/>
+          </svg>
+          <div class="ring__center">
+            <strong id="ringVal">0%</strong>
+            <span>READY</span>
+          </div>
+        </div>
+        <ul class="ring__legend">
+          <li><i style="background:#ff9933"></i>Fighters · 94%</li>
+          <li><i style="background:#ffffff"></i>Transport · 88%</li>
+          <li><i style="background:#138808"></i>Rotary · 91%</li>
+        </ul>
+      </div>
+      <div class="dash__panel dash__panel--line">
+        <header><h3>Sortie Cadence · 30D</h3><span>FLIGHT HRS</span></header>
+        <svg class="line" viewBox="0 0 400 160" preserveAspectRatio="none" id="lineChart"></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TIMELINE ============ -->
+  <section class="timeline" id="timeline">
+    <div class="section-head">
+      <span class="section-eyebrow">// 05 — NINE DECADES</span>
+      <h2 class="section-title">A <em>Timeline</em> Written in the Sky</h2>
+    </div>
+    <div class="timeline__track" id="timelineTrack"></div>
+    <div class="timeline__hint"><span>← DRAG · SCROLL →</span></div>
+  </section>
+
+  <!-- ============ AIR WARRIORS ============ -->
+  <section class="warriors" id="warriors">
+    <div class="section-head">
+      <span class="section-eyebrow">// 06 — AIR WARRIORS</span>
+      <h2 class="section-title">Names Carved in <em>Valour</em></h2>
+    </div>
+    <div class="warriors__grid" id="warriorsGrid"></div>
+  </section>
+
+  <!-- ============ SQUADRONS ============ -->
+  <section class="squadrons" id="squadrons">
+    <div class="section-head">
+      <span class="section-eyebrow">// 07 — SQUADRONS</span>
+      <h2 class="section-title">Crests of <em>Honour</em></h2>
+    </div>
+    <div class="squadrons__grid" id="squadronsGrid"></div>
+  </section>
+
+  <!-- ============ MISSION CONTROL ============ -->
+  <section class="mission" id="mission">
+    <div class="section-head">
+      <span class="section-eyebrow">// 08 — MISSION CONTROL</span>
+      <h2 class="section-title">Command. Control. <em>Dominate.</em></h2>
+    </div>
+    <div class="mission__grid">
+      <div class="mission__panel mission__panel--radar">
+        <header><h3>Sector Radar</h3><span class="live"><i></i>LIVE</span></header>
+        <div class="bigradar">
+          <div class="bigradar__grid"></div>
+          <div class="bigradar__rings"><span></span><span></span><span></span><span></span></div>
+          <div class="bigradar__sweep"></div>
+          <div class="bigradar__crosshair"></div>
+          <div class="bigradar__contact" style="--x:30%;--y:35%" data-c="GARUDA-1"></div>
+          <div class="bigradar__contact" style="--x:62%;--y:48%" data-c="THUNDER-3"></div>
+          <div class="bigradar__contact" style="--x:48%;--y:70%" data-c="ARROW-7"></div>
+          <div class="bigradar__contact" style="--x:75%;--y:28%" data-c="EAGLE-2"></div>
+        </div>
+      </div>
+      <div class="mission__panel mission__panel--feed">
+        <header><h3>Comm Feed</h3><span>ENCRYPTED</span></header>
+        <ul class="feed" id="commFeed"></ul>
+      </div>
+      <div class="mission__panel mission__panel--stats">
+        <header><h3>Theater Status</h3><span>OPS</span></header>
+        <div class="msstats">
+          <div><span>Airborne Assets</span><strong id="msA">— </strong></div>
+          <div><span>Active Sorties</span><strong id="msB">— </strong></div>
+          <div><span>Threat Level</span><strong class="ok">GREEN</strong></div>
+          <div><span>Refuel Tankers</span><strong id="msC">— </strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BASES MAP ============ -->
+  <section class="bases" id="bases">
+    <div class="section-head">
+      <span class="section-eyebrow">// 09 — AIR BASES</span>
+      <h2 class="section-title">A Nation, <em>Watched From Above</em></h2>
+    </div>
+    <div class="bases__wrap">
+      <div class="bases__map" id="basesMap">
+        <!-- Map will be rendered by JS with perfectly aligned coordinates -->
+      </div>
+      <aside class="bases__detail" id="baseDetail">
+        <span class="section-eyebrow">// SOVEREIGN AIRSPACE</span>
+        <h3>3.28 million km² · Bharat</h3>
+        <p>From Siachen to Indira Point, the IAF guards a continent-sized arc of sky. Seven operational commands · 60+ air bases · 24/7 readiness across every cardinal frontier.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ COMPARISON TOOL ============ -->
+  <section class="compare" id="compare">
+    <div class="section-head">
+      <span class="section-eyebrow">// 10 — COMPARE</span>
+      <h2 class="section-title">Spec for <em>Spec</em></h2>
+    </div>
+    <div class="compare__tool">
+      <div class="compare__col">
+        <label>AIRCRAFT A</label>
+        <select id="cmpA"></select>
+        <div class="compare__card" id="cardA"></div>
+      </div>
+      <div class="compare__vs">VS</div>
+      <div class="compare__col">
+        <label>AIRCRAFT B</label>
+        <select id="cmpB"></select>
+        <div class="compare__card" id="cardB"></div>
+      </div>
+    </div>
+    <div class="compare__bars" id="compareBars"></div>
+  </section>
+
+  <!-- ============ HUMANITARIAN ============ -->
+  <section class="humanitarian" id="humanitarian">
+    <div class="section-head">
+      <span class="section-eyebrow">// 11 — HUMANITARIAN</span>
+      <h2 class="section-title">Wings of <em>Mercy</em></h2>
+    </div>
+    <div class="humanitarian__grid" id="humanitarianGrid"></div>
+  </section>
+
+  <!-- ============ HANGAR ============ -->
+  <section class="hangar" id="hangar">
+    <div class="section-head">
+      <span class="section-eyebrow">// 12 — VIRTUAL HANGAR</span>
+      <h2 class="section-title">Step Inside the <em>Hangar</em></h2>
+    </div>
+    <div class="hangar__stage">
+      <canvas id="hangarCanvas"></canvas>
+      <iframe id="hangarSketchfab"
+        class="hangar__iframe"
+        title="3D Aircraft Model"
+        src="about:blank"
+        frameborder="0"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        allowfullscreen
+        mozallowfullscreen="true"
+        webkitallowfullscreen="true"
+        execution-while-out-of-viewport
+        execution-while-not-rendered
+        web-share
+        hidden></iframe>
+      <div class="hangar__credit" id="hangarCredit" hidden></div>
+      <div class="hangar__overlay">
+        <div class="hangar__label" id="hangarLabel">RAFALE · OMNIROLE</div>
+        <div class="hangar__rail">
+          <button data-h="0" data-model="rafale" class="active">Rafale</button>
+          <button data-h="1" data-model="su30">Su-30 MKI</button>
+          <button data-h="2" data-model="tejas">Tejas</button>
+          <button data-h="3" data-model="mirage">Mirage 2000</button>
+          <button data-h="4" data-model="c17">C-17</button>
+          <button data-h="5" data-model="apache">Apache</button>
+          <button data-h="6" data-model="chinook">Chinook</button>
+          <button data-h="7" data-model="amca">AMCA</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COCKPIT HUD ============ -->
+  <section class="cockpit" id="cockpit">
+    <div class="section-head">
+      <span class="section-eyebrow">// 13 — PILOT EXPERIENCE</span>
+      <h2 class="section-title">Inside the <em>Cockpit</em></h2>
+    </div>
+    <div class="cockpit__stage">
+      <div class="cockpit__frame"></div>
+      <div class="cockpit__hud">
+        <div class="hud-grid"></div>
+        <!-- horizon -->
+        <div class="hud-horizon" id="hudHorizon">
+          <div class="hud-horizon__sky"></div>
+          <div class="hud-horizon__ground"></div>
+          <div class="hud-horizon__ladder"></div>
+        </div>
+        <!-- pitch ladder -->
+        <div class="hud-pitch"></div>
+        <!-- velocity tape -->
+        <div class="hud-tape hud-tape--left">
+          <div class="hud-tape__label">KNOTS</div>
+          <div class="hud-tape__value" id="hudKnots">820</div>
+          <div class="hud-tape__ticks"></div>
+        </div>
+        <div class="hud-tape hud-tape--right">
+          <div class="hud-tape__label">ALT FT</div>
+          <div class="hud-tape__value" id="hudAlt2">38420</div>
+          <div class="hud-tape__ticks"></div>
+        </div>
+        <!-- compass -->
+        <div class="hud-compass">
+          <div class="hud-compass__strip" id="hudCompass"></div>
+          <div class="hud-compass__needle"></div>
+        </div>
+        <!-- target lock -->
+        <div class="hud-target" id="hudTarget">
+          <span class="hud-target__corner tl"></span>
+          <span class="hud-target__corner tr"></span>
+          <span class="hud-target__corner bl"></span>
+          <span class="hud-target__corner br"></span>
+          <div class="hud-target__label">LOCK · BANDIT · 14.2km</div>
+        </div>
+        <!-- crosshair -->
+        <div class="hud-cross"></div>
+        <!-- warning -->
+        <div class="hud-warn">MASTER ARM · ON</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section class="gallery" id="gallery">
+    <div class="section-head">
+      <span class="section-eyebrow">// 14 — GALLERY</span>
+      <h2 class="section-title">Frames of <em>Glory</em></h2>
+    </div>
+    <div class="gallery__tabs" id="galleryTabs"></div>
+    <div class="gallery__grid" id="galleryGrid"></div>
+  </section>
+
+  <!-- ============ QUOTE ============ -->
+  <section class="quote" id="quote">
+    <div class="quote__bg"></div>
+    <div class="quote__formation">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="quote__content">
+      <p class="quote__sanskrit">नभः स्पृशं दीप्तम्</p>
+      <h2 class="quote__line">"Touch The Sky<br/>With Glory."</h2>
+      <p class="quote__attrib">— Motto of the Indian Air Force · From the Bhagavad Gita, Chapter XI</p>
+    </div>
+  </section>
+
+  <!-- ============ TRIBUTE WALL ============ -->
+  <section class="tribute" id="tribute">
+    <div class="section-head">
+      <span class="section-eyebrow">// 15 — TRIBUTE WALL</span>
+      <h2 class="section-title">A Grateful <em>Nation</em> Salutes</h2>
+    </div>
+    <div class="tribute__grid" id="tributeGrid"></div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="footer">
+    <div class="footer__runway">
+      <div class="footer__lights"></div>
+    </div>
+    <div class="footer__main">
+      <div class="footer__brand">
+        <div class="nav__roundel"><span></span><span></span><span></span></div>
+        <div>
+          <strong>INDIAN AIR FORCE</strong>
+          <small>Touch The Sky With Glory · नभः स्पृशं दीप्तम्</small>
+        </div>
+      </div>
+      <nav class="footer__cols">
+        <div>
+          <h4>Explore</h4>
+          <a href="#fleet">Fleet</a>
+          <a href="#timeline">Timeline</a>
+          <a href="#warriors">Warriors</a>
+        </div>
+        <div>
+          <h4>Operations</h4>
+          <a href="#mission">Mission Control</a>
+          <a href="#bases">Air Bases</a>
+          <a href="#humanitarian">Humanitarian</a>
+        </div>
+        <div>
+          <h4>Experience</h4>
+          <a href="#hangar">Hangar</a>
+          <a href="#cockpit">Cockpit</a>
+          <a href="#gallery">Gallery</a>
+        </div>
+      </nav>
+    </div>
+    <div class="footer__strip">
+      <div class="flag-bar"><span></span><span></span><span></span></div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 · A cinematic tribute. Kisan's project. All trademarks belong to their respective owners.</span>
+      <button class="footer__top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+        BACK TO TOP
+      </button>
+    </div>
+  </footer>
+
+  <!-- ============ MODAL ============ -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel" role="dialog" aria-modal="true">
+      <button class="modal__close" data-close aria-label="Close">×</button>
+      <div class="modal__body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- ============ LIBS ============ -->
+  <audio id="jetAudio" data-src="/__l5e/assets-v1/a392d61a-b722-44c1-98d9-94a3e529a247/jet-flyby.mp3" preload="none"></audio>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+  <script defer src="data.js"></script>
+  <script defer src="script.js"></script>
+</body>
+</html>
