@@ -11,31 +11,47 @@ const lerp = (a, b, t) => a + (b - a) * t;
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 
 // ============= LOADER =============
+let loaderSkipped = false;
 async function runLoader() {
   const fill = $('#loaderBar');
   const pct  = $('#loaderPct');
+  const loader = $('#loader');
+  const skipBtn = $('#loaderSkip');
+
+  const finish = () => {
+    if (loaderSkipped) return;
+    loaderSkipped = true;
+    if (fill) fill.style.width = '100%';
+    if (pct) pct.textContent = '100%';
+    // Lazy-bind audio src + play on the first user gesture only
+    const jetAudio = $('#jetAudio');
+    if (jetAudio && jetAudio.dataset.src && !jetAudio.src) {
+      jetAudio.src = jetAudio.dataset.src;
+      jetAudio.volume = 0.45;
+    }
+    const tryPlay = () => { jetAudio && jetAudio.play().catch(() => {}); };
+    document.addEventListener('pointerdown', tryPlay, { once: true });
+    document.addEventListener('keydown', tryPlay, { once: true });
+    loader && loader.classList.add('is-done');
+  };
+
+  skipBtn && skipBtn.addEventListener('click', finish, { once: true });
+  // Safety: auto-skip if anything stalls the boot animation
+  const watchdog = setTimeout(finish, 6000);
+
   let v = 0;
-  while (v < 100) {
-    v += Math.random() * 6 + 2;
+  while (v < 100 && !loaderSkipped) {
+    v += Math.random() * 7 + 3;
     if (v > 100) v = 100;
-    fill.style.width = v + '%';
-    pct.textContent = Math.round(v) + '%';
-    await wait(60);
+    if (fill) fill.style.width = v + '%';
+    if (pct) pct.textContent = Math.round(v) + '%';
+    await wait(45);
   }
-  await wait(400);
-  
-  // Play jet flyby sound at initialization completion
-  const jetAudio = $('#jetAudio');
-  if (jetAudio) {
-    jetAudio.volume = 0.5;
-    jetAudio.play().catch(() => {
-      // Autoplay might be blocked; will play on first user interaction
-      document.addEventListener('click', () => jetAudio.play().catch(() => {}), { once: true });
-    });
-  }
-  
-  $('#loader').classList.add('is-done');
+  await wait(250);
+  clearTimeout(watchdog);
+  finish();
 }
+
 
 // engine audio toggle (clean synthesized tone - no vibration)
 (function engineAudio(){
