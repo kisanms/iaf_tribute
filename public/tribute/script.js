@@ -23,14 +23,6 @@ async function runLoader() {
     loaderSkipped = true;
     if (fill) fill.style.width = '100%';
     if (pct) pct.textContent = '100%';
-    // Pre-bind jet audio src so the toggle can play it on click — but do NOT
-    // auto-play on the first stray gesture. Sound only plays when the user
-    // explicitly clicks the ENGINE AUDIO button.
-    const jetAudio = $('#jetAudio');
-    if (jetAudio && jetAudio.dataset.src && !jetAudio.src) {
-      jetAudio.src = jetAudio.dataset.src;
-      jetAudio.volume = 0.45;
-    }
     loader && loader.classList.add('is-done');
   };
 
@@ -50,54 +42,6 @@ async function runLoader() {
   clearTimeout(watchdog);
   finish();
 }
-
-
-// engine audio toggle (clean synthesized tone - no vibration)
-(function engineAudio(){
-  const btn = $('#soundToggle');
-  let ctx, osc1, osc2, gain, on = false;
-  btn?.addEventListener('click', () => {
-    on = !on;
-    btn.style.background = on ? 'rgba(126,247,200,.2)' : 'transparent';
-    btn.style.boxShadow  = on ? '0 0 18px rgba(126,247,200,.5)' : 'none';
-    if (on) {
-      ctx = new (window.AudioContext || window.webkitAudioContext)();
-      
-      // Create a smooth, clean engine drone (two sine waves for richness)
-      gain = ctx.createGain();
-      gain.gain.value = 0;
-      gain.connect(ctx.destination);
-      
-      // Base frequency - smooth sine
-      osc1 = ctx.createOscillator();
-      osc1.type = 'sine';
-      osc1.frequency.value = 80;
-      osc1.connect(gain);
-      osc1.start();
-      
-      // Slightly higher harmonic for depth
-      osc2 = ctx.createOscillator();
-      osc2.type = 'sine';
-      osc2.frequency.value = 120;
-      const gain2 = ctx.createGain();
-      gain2.gain.value = 0.5;
-      osc2.connect(gain2);
-      gain2.connect(gain);
-      osc2.start();
-      
-      // Smooth fade in
-      gain.gain.linearRampToValueAtTime(0.08, ctx.currentTime + 0.5);
-    } else if (ctx) {
-      // Smooth fade out
-      gain.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.5);
-      setTimeout(() => {
-        osc1.stop();
-        osc2.stop();
-        ctx.close();
-      }, 600);
-    }
-  });
-})();
 
 // ============= LENIS SMOOTH SCROLL =============
 let lenis;
@@ -656,7 +600,7 @@ function renderBases() {
   const map = $('#basesMap');
   // Use the uploaded minimalist map design, styled with CSS to glow tactically
   map.insertAdjacentHTML('beforeend', `
-    <img src="india-map.png" class="india-map-img" alt="India Map Outline" />
+    <img src="/tribute/assets/india-map.png" class="india-map-img" alt="India Map Outline" />
     <div class="bases__radar"></div>
   `);
 
@@ -887,7 +831,7 @@ function initCockpit() {
   });
   
   // Add dynamic background image (dramatic first-person cockpit dogfight view from uploaded asset)
-  stage.style.backgroundImage = `url('/__l5e/assets-v1/9967b7fc-ad3b-46c2-b117-ffcf1bb8993a/cockpit-bg.png')`;
+  stage.style.backgroundImage = `url('/tribute/assets/cockpit-bg.png')`;
   stage.style.backgroundSize = 'cover';
   stage.style.backgroundPosition = 'center 30%';
   stage.style.backgroundBlendMode = 'normal';
