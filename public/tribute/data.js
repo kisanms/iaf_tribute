@@ -325,18 +325,18 @@ const HUMANITARIAN = [
 ];
 
 const GALLERY = [
-  { cat: 'Aircraft', label: 'Rafale · Omnirole Fighter', tint: ['#0a7fff','#5fb8ff'], image: 'https://images.unsplash.com/photo-1542256844-3151d3d32c3f?auto=format&fit=crop&w=800&q=80' },
-  { cat: 'Aircraft', label: 'Su-30 MKI · Air Dominance', tint: ['#ff4e1f','#ff9b6e'], image: 'https://images.unsplash.com/photo-1559627755-e8d1c9e3d8e1?auto=format&fit=crop&w=800&q=80' },
-  { cat: 'Aircraft', label: 'Tejas · Indigenous LCA',  tint: ['#ff8a00','#ffd166'], image: 'https://images.unsplash.com/photo-1583070630499-5e2a5e9b3c5f?auto=format&fit=crop&w=800&q=80' },
-  { cat: 'Aircraft', label: 'C-17 · Strategic Airlift', tint: ['#5b7a99','#cad7e6'], image: 'https://images.unsplash.com/photo-1569629743817-70d8db6c323b?auto=format&fit=crop&w=800&q=80' },
-  { cat: 'Pilots',   label: 'Sarang Display Team',    tint: ['#ff9933','#ffd6a8'], image: 'https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=800&q=80' },
-  { cat: 'Pilots',   label: 'Pre-Flight Briefing',  tint: ['#1a3a5e','#5fb8ff'], image: 'https://images.unsplash.com/photo-1520699049698-acd2fcc51056?auto=format&fit=crop&w=800&q=80' },
-  { cat: 'Operations', label: 'Precision Strike Ops', tint: ['#0a1628','#ff4e1f'], image: 'https://images.unsplash.com/photo-1559818456-3e7c5e7c5e7c?auto=format&fit=crop&w=800&q=80' },
-  { cat: 'Operations', label: 'High Altitude Ops',   tint: ['#1a3a5e','#ffd166'], image: 'https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=800&q=80' },
-  { cat: 'Air Shows', label: 'Suryakiran Formation',   tint: ['#0a7fff','#ff9933'], image: 'https://images.unsplash.com/photo-1506469717960-433cebe3f181?auto=format&fit=crop&w=800&q=80' },
-  { cat: 'Air Shows', label: 'Aerobatic Heart',        tint: ['#ff9933','#138808'], image: 'https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?auto=format&fit=crop&w=800&q=80' },
-  { cat: 'Infrastructure', label: 'Leh · 11,000 ft', tint: ['#3a5a7a','#9fb3c8'], image: 'https://images.unsplash.com/photo-1542296332-2e44a99cfef9?auto=format&fit=crop&w=800&q=80' },
-  { cat: 'Infrastructure', label: 'Hardened Aircraft Shelter', tint: ['#0a1628','#3a5a7a'], image: 'https://images.unsplash.com/photo-1558507652-2d9626c4e67a?auto=format&fit=crop&w=800&q=80' }
+  { cat: 'Aircraft', label: 'Rafale · Omnirole Fighter', tint: ['#0a7fff','#5fb8ff'], image: 'assets/rafale.png' },
+  { cat: 'Aircraft', label: 'Su-30 MKI · Air Dominance', tint: ['#ff4e1f','#ff9b6e'], image: 'assets/su30.png' },
+  { cat: 'Aircraft', label: 'Tejas · Indigenous LCA', tint: ['#ff8a00','#ffd166'], image: 'assets/tejas.png' },
+  { cat: 'Aircraft', label: 'C-17 · Strategic Airlift', tint: ['#5b7a99','#cad7e6'], image: 'assets/c17.png' },
+  { cat: 'Pilots', label: 'Sarang Display Team', tint: ['#ff9933','#ffd6a8'], image: 'assets/sarang.png' },
+  { cat: 'Pilots', label: 'Pre-Flight Briefing', tint: ['#1a3a5e','#5fb8ff'], image: 'assets/briefing.png' },
+  { cat: 'Operations', label: 'Precision Strike Ops', tint: ['#0a1628','#ff4e1f'], image: 'assets/strike.png' },
+  { cat: 'Operations', label: 'High Altitude Ops', tint: ['#1a3a5e','#ffd166'], image: 'assets/high_alt.png' },
+  { cat: 'Air Shows', label: 'Suryakiran Formation', tint: ['#0a7fff','#ff9933'], image: 'assets/suryakiran.png' },
+  { cat: 'Air Shows', label: 'Aerobatic Heart', tint: ['#ff9933','#138808'], image: 'assets/heart.png' },
+  { cat: 'Infrastructure', label: 'Leh · 11,000 ft', tint: ['#3a5a7a','#9fb3c8'], image: 'assets/leh.png' },
+  { cat: 'Infrastructure', label: 'Hardened Aircraft Shelter', tint: ['#0a1628','#3a5a7a'], image: 'assets/shelter.png' }
 ];
 
 const TRIBUTES = [
