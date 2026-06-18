@@ -600,7 +600,7 @@ function renderBases() {
   const map = $('#basesMap');
   // Use the uploaded minimalist map design, styled with CSS to glow tactically
   map.insertAdjacentHTML('beforeend', `
-    <img src="india-map.png" class="india-map-img" alt="India Map Outline" />
+    <img src="/tribute/assets/india-map.png" class="india-map-img" alt="India Map Outline" />
     <div class="bases__radar"></div>
   `);
 
@@ -831,7 +831,7 @@ function initCockpit() {
   });
   
   // Add dynamic background image (dramatic first-person cockpit dogfight view from uploaded asset)
-  stage.style.backgroundImage = `url('/__l5e/assets-v1/9967b7fc-ad3b-46c2-b117-ffcf1bb8993a/cockpit-bg.png')`;
+  stage.style.backgroundImage = `url('/tribute/assets/cockpit-bg.png')`;
   stage.style.backgroundSize = 'cover';
   stage.style.backgroundPosition = 'center 30%';
   stage.style.backgroundBlendMode = 'normal';
